@@ -1,33 +1,36 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_application_9/add_screen/addingscreen/addingscreen.dart';
 import 'package:flutter_application_9/db/dbmodel/dbmodel.dart';
-import 'package:flutter_application_9/homepage.dart';
-import 'package:flutter_application_9/listofadded.dart';
+
+import 'package:flutter_application_9/add_screen/listofadded/listofadded.dart';
+import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:flutter_application_9/db/dbmodel/dbmodel.dart';
 
-class EditingScreen extends StatefulWidget {
+class EditingScreen extends StatelessWidget {
   const EditingScreen({Key? key}) : super(key: key);
 
   @override
-  State<EditingScreen> createState() => _EditingScreenState();
-}
-
-class _EditingScreenState extends State<EditingScreen> {
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(backgroundColor: Colors.purple),
+        appBar: AppBar(
+          backgroundColor: Colors.purple,
+          title: Center(child: Text('HOME')),
+        ),
         body: SafeArea(
           child: Column(
             children: [
               Expanded(
                 child: GestureDetector(
-                  onTap: () => Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => AddingScrean(false, null, -1),
-                  )),
+                  onTap: () =>
+
+                      // Navigator.of(context).push(MaterialPageRoute(
+                      //   builder: (context) => AddingScrean(false, null, -1),
+                      // ))
+                      Get.to(() => AddingScrean(false, null, -1)),
                   child: Container(
                       margin: EdgeInsets.all(30),
                       width: double.infinity,
@@ -48,8 +51,11 @@ class _EditingScreenState extends State<EditingScreen> {
               ),
               Expanded(
                 child: GestureDetector(
-                  onTap: () => Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => ListOfAdded())),
+                  onTap: () =>
+
+                      //  Navigator.of(context).push(
+                      //     MaterialPageRoute(builder: (context) => ListOfAdded()))
+                      Get.to(() => ListOfAdded()),
                   child: Container(
                       margin: EdgeInsets.all(30),
                       width: double.infinity,
